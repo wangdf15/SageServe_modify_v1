@@ -13,7 +13,7 @@ def main():
             request_type = 2
             scenario = "EnterpriseSydney"
             random_num = random.random()
-            model_type = random.choice(["llama2-70b", "bloom-176b"])
+            model_type = random.choice(["A", "B", "C", "D"])
             application_id = 0
             regions = ''.join(random.sample("012", 3))
             if random_num < 0.7:

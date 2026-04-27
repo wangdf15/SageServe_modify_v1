@@ -18,9 +18,9 @@ defaults:
   - performance_model: db
   - power_model: constant
   # - applications: solo
-  - trace: enterprise_sydney
+  - trace: random_trace
   # - start_state: orca
-  - override hydra/launcher: ray
+  # - override hydra/launcher: ray  # disabled for local run
   - _self_
 
 end_time: 8640000
@@ -52,7 +52,3 @@ hydra:
     subdir: ${output_dir}
   job:
     chdir: True
-  launcher:
-    ray:
-      init:
-        address: "10.0.0.9:6379"
