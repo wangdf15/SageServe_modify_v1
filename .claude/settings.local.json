@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python *)"
+      "Bash(python *)",
+      "Bash(wc -l \"D:\\\\\\\\gitdo\\\\\\\\sageserve_v1\\\\\\\\SageServe_modify_v1\\\\\\\\traces\\\\\\\\random_trace.csv\")"
     ]
   }
 }
