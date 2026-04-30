@@ -180,7 +180,7 @@ class TraceSimulator(Simulator):
                             for j, instance in enumerate(app.instances):
                                 mem_logs.append(f"{self.time},{reg.region_name}_{mer.model_name}_{i}_{j},{instance.memory-instance.model_memory},{instance.max_memory-instance.model_memory},{instance.model_memory},{len(instance.pending_requests)}\n")
                 mem_time = self.time // 2
-            if self.time >= mem_write_time + 60*60*1:
+            if self.time >= mem_write_time + 60*10:
                 start_time = time()
                 logging.info(f"Saving intermediate results at {utils.convert_seconds_to_dd_hh_min_ss(self.time)}")
                 os.makedirs("memory", exist_ok=True)
@@ -269,7 +269,7 @@ class TraceSimulator(Simulator):
         self.logger.info(f"{self.time},end")
         logging.info(f"TraceSimulator completed at {self.time}")
 
-        # self.save_results()
+        self.save_results()
 
     def save_results_intermediate(self, write_itr, detailed=True):
         self.global_router.save_results_intermediate(write_itr)

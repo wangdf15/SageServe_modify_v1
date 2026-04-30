@@ -122,6 +122,7 @@ class Scheduler(ABC):
         self.array_results["nth_token_overheads"].append(r.get_nth_token_overhead())
         self.array_results["prompt_sizes"].append(r.prompt_size)
         self.array_results["token_sizes"].append(r.token_size)
+        self.scheduler_logger.info(f"{clock()},completion,response_time={r.metrics.global_router_response_time:.2f},queue_time={r.metrics.queue_time:.2f},ttft={r.metrics.TTFT:.2f}")
         self.node_metrics.extend(r.get_all_node_metrics())
         if self.application.feed_async:
             feed_async(self.application.region, self.application.router.model_name, self.application.feed_async_granularity)
