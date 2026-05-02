@@ -1,0 +1,6 @@
+time,action,info
+199.42663726553732,completion,response_time=0.00,queue_time=1.00,ttft=1.01
+213.57985840032512,completion,response_time=0.00,queue_time=1.00,ttft=1.01
+218.02676283260251,completion,response_time=0.00,queue_time=1.00,ttft=1.01
+253.2138524541273,completion,response_time=0.00,queue_time=1.00,ttft=1.01
+e=1.00,ttft=1.01

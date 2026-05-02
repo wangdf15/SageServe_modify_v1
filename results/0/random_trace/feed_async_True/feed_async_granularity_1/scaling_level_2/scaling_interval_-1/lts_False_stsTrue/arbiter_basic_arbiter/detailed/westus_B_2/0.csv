@@ -1,0 +1,2 @@
+response_times,queue_times,ttft_times,tbt_times,nth_token_overheads,prompt_sizes,token_sizes
+0.0,1,1.2725091228728758,-0.0031342589233322063,0.0,911,406

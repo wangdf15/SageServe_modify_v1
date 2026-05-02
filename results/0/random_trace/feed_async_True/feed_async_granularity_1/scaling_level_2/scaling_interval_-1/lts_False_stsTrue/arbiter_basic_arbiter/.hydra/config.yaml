@@ -1,0 +1,147 @@
+controller:
+  power_budget: 232000
+  regions:
+  - region_id: 0
+    region_name: westus
+    region_cluster: dgx-a100
+    arbiter: basic_arbiter
+    model_endpoints:
+    - model_endpoint_id: 0
+      model_name: A
+      model_endpoint_router: round_robin
+      start_state: orca
+      instance_count: 20
+    - model_endpoint_id: 1
+      model_name: B
+      model_endpoint_router: round_robin
+      start_state: orca
+      instance_count: 20
+    - model_endpoint_id: 2
+      model_name: C
+      model_endpoint_router: round_robin
+      start_state: orca
+      instance_count: 20
+    - model_endpoint_id: 3
+      model_name: D
+      model_endpoint_router: round_robin
+      start_state: orca
+      instance_count: 20
+  - region_id: 1
+    region_name: centralus
+    region_cluster: dgx-a100
+    arbiter: basic_arbiter
+    model_endpoints:
+    - model_endpoint_id: 0
+      model_name: A
+      model_endpoint_router: round_robin
+      start_state: orca
+      instance_count: 20
+    - model_endpoint_id: 1
+      model_name: B
+      model_endpoint_router: round_robin
+      start_state: orca
+      instance_count: 20
+    - model_endpoint_id: 2
+      model_name: C
+      model_endpoint_router: round_robin
+      start_state: orca
+      instance_count: 20
+    - model_endpoint_id: 3
+      model_name: D
+      model_endpoint_router: round_robin
+      start_state: orca
+      instance_count: 20
+  - region_id: 2
+    region_name: eastus
+    region_cluster: dgx-a100
+    arbiter: basic_arbiter
+    model_endpoints:
+    - model_endpoint_id: 0
+      model_name: A
+      model_endpoint_router: round_robin
+      start_state: orca
+      instance_count: 20
+    - model_endpoint_id: 1
+      model_name: B
+      model_endpoint_router: round_robin
+      start_state: orca
+      instance_count: 20
+    - model_endpoint_id: 2
+      model_name: C
+      model_endpoint_router: round_robin
+      start_state: orca
+      instance_count: 20
+    - model_endpoint_id: 3
+      model_name: D
+      model_endpoint_router: round_robin
+      start_state: orca
+      instance_count: 20
+global_router:
+  overheads:
+    routing_delay: 1
+  no_reroute: true
+  _target_: global_router.ProbabilisticRouter
+global_arbiter:
+  arima_traces: traces/forecasts/
+  long_term_scaling_interval: 3600
+  post_processing_strategy: immediate
+  max_time: 604800
+  arima_aware_arbiter: false
+  _target_: global_arbiter.MilpGlobalArbiter
+region_repo:
+  regions: configs/region_repo/regions
+  region_routers: configs/region_repo/region_routers
+  caches: configs/region_repo/caches
+cluster_repo:
+  clusters: configs/cluster_repo/clusters
+arbiter_repo:
+  arbiters: configs/arbiter_repo/arbiters
+model_endpoint_repo:
+  model_endpoint_routers: configs/model_endpoint_repo/model_endpoint_routers
+application_repo:
+  applications: configs/application_repo/applications
+  debug: false
+hardware_repo:
+  processors: configs/hardware_repo/processors
+  skus: configs/hardware_repo/skus
+  interconnects: configs/hardware_repo/interconnects
+start_state_repo:
+  start_states: configs/start_state_repo/start_states
+model_repo:
+  architectures: configs/model_repo/architectures
+  sizes: configs/model_repo/sizes
+orchestrator_repo:
+  allocators: configs/orchestrator_repo/allocators
+  schedulers: configs/orchestrator_repo/schedulers
+performance_model:
+  _target_: performance_model.DatabasePerformanceModel
+  db_path: data/perf_model_4_models.csv
+power_model:
+  _target_: power_model.ConstantPowerModel
+  idle_power:
+    a100-80gb: 63
+    h100-80gb: 75
+  prompt_power:
+    a100-80gb: 400
+    h100-80gb: 700
+  token_power:
+    a100-80gb: 250
+    h100-80gb: 380
+trace:
+  dir: traces/
+  filename: random_trace
+  path: ${trace.dir}/${trace.filename}.csv
+end_time: 1000
+debug: false
+seed: 0
+feed_async: true
+feed_async_granularity: 1
+scaling_level: 2
+scaling_interval: -1
+short_term_scaling: true
+long_term_scaling: false
+print_class_stack: false
+arima_checking_scaling_threshhold: 5
+siloed: false
+choices: ${hydra:runtime.choices}
+output_dir: results/${seed}/${trace.filename}/feed_async_${feed_async}/feed_async_granularity_${feed_async_granularity}/scaling_level_${scaling_level}/scaling_interval_${scaling_interval}/lts_${long_term_scaling}_sts${short_term_scaling}/arbiter_${controller.regions.0.arbiter}/

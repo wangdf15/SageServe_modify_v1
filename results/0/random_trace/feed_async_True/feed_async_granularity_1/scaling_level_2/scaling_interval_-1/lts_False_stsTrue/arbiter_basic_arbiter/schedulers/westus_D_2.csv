@@ -1,0 +1,9 @@
+time,action,info
+413.65481345459483,completion,response_time=0.00,queue_time=1.01,ttft=1.02
+415.8182389379919,completion,response_time=0.00,queue_time=1.01,ttft=1.02
+416.05696251210236,completion,response_time=0.00,queue_time=1.00,ttft=1.01
+424.6168141345964,completion,response_time=0.00,queue_time=1.01,ttft=1.02
+429.6141420845897,completion,response_time=0.00,queue_time=1.00,ttft=1.01
+432.8559540543269,completion,response_time=0.00,queue_time=1.00,ttft=1.01
+433.00848577924216,completion,response_time=0.00,queue_time=1.00,ttft=1.01
+e=1.00,ttft=1.01

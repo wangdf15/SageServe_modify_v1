@@ -1,0 +1,16 @@
+time,action,info
+810.9642138438661,completion,response_time=0.00,queue_time=1.00,ttft=1.17
+827.0803184883713,completion,response_time=0.00,queue_time=1.05,ttft=1.14
+839.9104759482311,completion,response_time=0.00,queue_time=1.05,ttft=1.23
+852.7049519310558,completion,response_time=0.00,queue_time=15.91,ttft=16.08
+857.8058080143709,completion,response_time=0.00,queue_time=1.05,ttft=1.23
+859.4639499010041,completion,response_time=0.00,queue_time=17.90,ttft=18.13
+862.1460234707024,completion,response_time=0.00,queue_time=24.91,ttft=25.08
+872.4529079277103,completion,response_time=0.00,queue_time=17.90,ttft=18.13
+898.7115727577436,completion,response_time=0.00,queue_time=15.81,ttft=16.04
+944.6634077055417,completion,response_time=0.00,queue_time=1.03,ttft=1.19
+948.5690520902906,completion,response_time=0.00,queue_time=1.03,ttft=1.14
+956.3523244101995,completion,response_time=0.00,queue_time=1.05,ttft=1.13
+974.9678198070402,completion,response_time=0.00,queue_time=1.02,ttft=1.19
+981.3828985369701,completion,response_time=0.00,queue_time=1.00,ttft=1.10
+e=1.00,ttft=1.10

@@ -1,0 +1,3 @@
+time,action,info
+95.49545097025302,completion,response_time=0.00,queue_time=1.00,ttft=1.17
+103.23768313450961,completion,response_time=0.00,queue_time=1.00,ttft=1.26
